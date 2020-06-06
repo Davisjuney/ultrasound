@@ -26,7 +26,7 @@ class SonographerInputController extends Controller
                 'ante_partum_hemorrhage' => 'required|string',
                 'oligohydramnios' => 'required|string',
                 'polyhydramnios' => 'required|string',
-                'previous_c&s' => 'required|string',
+                'previous_cs' => 'required|string',
                 'fibroid' => 'required|string',
                 'previous_surgery' => 'required|string',
                 'contraceptives_usage' => 'required|string',

@@ -39,12 +39,12 @@ class ScanReportController extends Controller
                 'estimated_fetal_weight'  => 'nullable|string',
                 'uterine_anomaly'  => 'nullable|string',
                 'expected_date_of_delivery'  => 'nullable|date',
-                'adnexa/ovarian_anomaly'  => 'nullable|string',
+                'ovarian_anomaly'  => 'nullable|string',
                 'cul_de_sac'  => 'nullable|string',
                 'conclusion_report'  => 'nullable|string',
                 'next_apointment_date'  => 'nullable|string',
                 'scan_frequency'  => 'nullable|string',
-                'patient_id'  => 'nullable|integer',
+                'patient_id'  => 'required|integer',
             ]);
             return ScanReport::create(
                 $validatedScan
@@ -72,16 +72,16 @@ class ScanReportController extends Controller
             'estimated_fetal_weight'  => 'nullable|string',
             'uterine_anomaly'  => 'nullable|string',
             'expected_date_of_delivery'  => 'nullable|date',
-            'adnexa/ovarian_anomaly'  => 'nullable|string',
+            'ovarian_anomaly'  => 'nullable|string',
             'cul_de_sac'  => 'nullable|string',
             'conclusion_report'  => 'nullable|string',
             'next_apointment_date'  => 'nullable|string',
             'scan_frequency'  => 'nullable|string',
-            'patient_id'  => 'nullable|integer',
+            'patient_id'  => 'required|integer',
         ]);
 
         $scan = ScanReport::find($validatedScan['id']);
-        $scan->fill(
+        $scan->update(
             $validatedScan
         );
         return $scan;

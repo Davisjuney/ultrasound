@@ -40,6 +40,7 @@ class PatientController extends Controller
                 $validatedPatient
             );
         }
+        
         $validatedPatient = $request->validate([
             'id' => 'required|integer',
             'first_name' => 'required|string',
@@ -59,11 +60,13 @@ class PatientController extends Controller
         ]);
 
         $patient = Patient::find($validatedPatient['id']);
-        $patient->fill(
+        $patient->update(
             $validatedPatient
         );
         return $patient;
     }
+
+
     public function show(Patient $patient)
     {
         return $patient;
